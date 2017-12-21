@@ -1,0 +1,12 @@
+@import 'breakpoints';
+
+body {
+  @include breakpoint(tiny) {
+    margin: $body-margin-height 20px;
+    max-width: 100%;
+  }
+  @include breakpoint(medium) {
+    margin: $body-margin-height 200px;
+    max-width: 40%;
+  }
+}
