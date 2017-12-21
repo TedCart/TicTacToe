@@ -26,13 +26,26 @@
             <a class="nav-item nav-link" href="#">Features</a>
             <a class="nav-item nav-link" href="#">Pricing</a>
             <a class="nav-item nav-link disabled" href="#">Disabled</a>
+            <form id="sign-in-form">
+              <input name="credentials[email]" type="text" placeholder="Username">
+              <input name="credentials[password]" type="password" placeholder="Password">
+              <input type="submit" class="btn btn-primary" value="Sign In">
+            </form>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-              Launch demo modal
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createAccount" id="createAccountButton">
+              Create Account
+            </button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changePassword" id="changePasswordButton">
+              Change Password
+            </button>
+            <button type="button" class="btn btn-primary" id="#sign-out">
+              Sign Out
             </button>
           </div>
         </div>
       </nav>
+      <div class="message-box" id="message-box">
+      </div>
       <main>
         <div class="container">
           <div class="row">
@@ -92,20 +105,46 @@
       	<p class="copyright">Copyright 2017</p>
       	<p class="message">Created with &hearts; by <span class="name">GA</span></p>
       </footer>
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="createAccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <form id="modal-form">
+            <form id="sign-up-form">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">This is a Modal Title</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
                 <fieldset>
-                  <legend>Hooray for You</legend>
-                  <input type="text" name="text[message]" placeHolder="Put some text here">
+                  <legend>Create an Account</legend>
+                  <input name="credentials[email]" type="text" placeholder="New Username">
+                  <input name="credentials[password]" type="password" placeholder="Password">
+                  <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+                  <!-- <input type="submit" class="btn btn-primary" name="submit" value="Save Changes"> -->
+                </fieldset>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <form id="change-password">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <fieldset>
+                  <legend>Change Password</legend>
+                  <input name="passwords[old]" type="password" placeholder="Old Password">
+                  <input name="passwords[new]" type="password" placeholder="New Password">
                   <!-- <input type="submit" class="btn btn-primary" name="submit" value="Save Changes"> -->
                 </fieldset>
               </div>
