@@ -20,6 +20,11 @@ body {
   margin: 0 auto;
 }
 
+.emptiness {
+  color: $main-background-color;
+  font-size: 100pt;
+}
+
 .game-square {
   box-sizing: border-box;
   color: $game-square-text-color;
@@ -41,7 +46,7 @@ body {
 }
 
 .message-box {
-  font-size: 3vw;
+  font-size: 4pt;
   text-align: center;
 }
 

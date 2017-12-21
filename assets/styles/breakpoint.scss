@@ -13,22 +13,23 @@
 
 .medium-at-least {
   @include breakpoint(medium) {
-    // display: block;
-    visibility: visible;
+    display: block;
+    // visibility: visible;
   }
   @include breakpoint(less-medium) {
     // display: none;
-    visibility: hidden;
+    // visibility: hidden;
+    color: $main-background-color;
   }
 }
 
 .medium-less-than {
   @include breakpoint(less-medium) {
-    // display: block;
-    visibility: visible;
+    display: block;
+    // visibility: visible;
   }
   @include breakpoint(medium) {
-    // display: none;
-    visibility: hidden;
+    display: none;
+    // visibility: hidden;
   }
 }
