@@ -3,6 +3,7 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const events = require('./game/events')
+const ui = require('./game/ui')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -16,4 +17,5 @@ $(() => {
 
 $(() => {
   events.addHandlers()
+  ui.toggleSignInButtons()
 })

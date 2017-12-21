@@ -4,6 +4,7 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
 
 let turnsTaken = 0
 let wrongClicks = 0
@@ -227,7 +228,8 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
-const onSignOut = function () {
+const onSignOut = function (event) {
+  console.log(store.user)
   event.preventDefault()
   api.signOut()
     .then(ui.signOutSuccess)
@@ -239,7 +241,7 @@ const addHandlers = function () {
   $('#sign-up-form').on('submit', onSignUp)
   $('#sign-in-form').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
-  $('#sign-out').on('click', onSignOut)
+  $('#sign-out').on('submit', onSignOut)
 }
 
 module.exports = {

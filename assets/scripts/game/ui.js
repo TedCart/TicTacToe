@@ -6,9 +6,25 @@ const clearFields = function () {
   $('input:text, input:password').val('')
 }
 
+const toggleSignInButtons = function () {
+  console.log(store.user)
+  if (store.user) {
+    $('#sign-in-form').css('display', 'none')
+    $('#createAccountButton').css('display', 'none')
+    $('#changePasswordButton').css('display', 'block')
+    $('#sign-out').css('display', 'block')
+  } else {
+    $('#sign-in-form').css('display', 'block')
+    $('#createAccountButton').css('display', 'block')
+    $('#changePasswordButton').css('display', 'none')
+    $('#sign-out').css('display', 'none')
+  }
+}
+
 const signUpSuccess = function (data) {
   console.log(data)
   clearFields()
+  toggleSignInButtons()
 }
 
 const signUpFailure = function (error) {
@@ -21,6 +37,7 @@ const signInSuccess = function (data) {
   $('#message-box').text('Successfully signed in!')
   store.user = data.user
   clearFields()
+  toggleSignInButtons()
 }
 
 const signInFailure = function (error) {
@@ -32,6 +49,7 @@ const signInFailure = function (error) {
 const changePasswordSuccess = function (data) {
   console.log(data)
   clearFields()
+  toggleSignInButtons()
 }
 
 const changePasswordFailure = function (error) {
@@ -40,10 +58,11 @@ const changePasswordFailure = function (error) {
 }
 
 const signOutSuccess = function (data) {
-  console.log(data)
+  // console.log(data)
   store.user = ''
   $('#message-box').text('You signed out!')
   clearFields()
+  toggleSignInButtons()
 }
 
 const signOutFailure = function (error) {
@@ -59,5 +78,6 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  toggleSignInButtons
 }

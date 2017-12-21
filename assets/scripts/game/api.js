@@ -7,8 +7,10 @@ const signUp = (data) => {
   // const json = JSON.stringify(data)
   console.log('heres what config.apiOrigin is returning: ' + config.apiOrigin + '/sign-up')
   console.log('FYI config.apiOrigin SHOULD look like this: ' + 'https://ga-wdi-boston.herokuapp.com' + '/sign-up')
+  console.log('Heres the data youre trying to submit WHICH FOLLOWS ALL THE RULES:')
+  console.log(data)
   return $.ajax({
-    url: 'https://ga-wdi-boston.herokuapp.com' + '/sign-up',
+    url: config.apiOrigin + '/sign-up',
     method: 'POST',
     data
   })
@@ -16,20 +18,16 @@ const signUp = (data) => {
 
 const signIn = (data) => {
   // const json = JSON.stringify(data)
-  console.log('heres what config.apiOrigin is returning: ' + config.apiOrigin + '/sign-up')
-  console.log('FYI config.apiOrigin SHOULD look like this: ' + 'https://ga-wdi-boston.herokuapp.com' + '/sign-up')
   return $.ajax({
-    url: 'https://ga-wdi-boston.herokuapp.com' + '/sign-in',
+    url: config.apiOrigin + '/sign-in',
     method: 'POST',
     data
   })
 }
 
 const changePassword = (data) => {
-  console.log('heres what config.apiOrigin is returning: ' + config.apiOrigin + '/sign-up')
-  console.log('FYI config.apiOrigin SHOULD look like this: ' + 'https://ga-wdi-boston.herokuapp.com' + '/sign-up')
   return $.ajax({
-    url: 'https://ga-wdi-boston.herokuapp.com' + '/change-password/' + store.user.id,
+    url: config.apiOrigin + '/change-password/' + store.user.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -39,10 +37,8 @@ const changePassword = (data) => {
 }
 
 const signOut = () => {
-  console.log('heres what config.apiOrigin is returning: ' + config.apiOrigin + '/sign-up')
-  console.log('FYI config.apiOrigin SHOULD look like this: ' + 'https://ga-wdi-boston.herokuapp.com' + '/sign-up')
   return $.ajax({
-    url: 'https://ga-wdi-boston.herokuapp.com' + '/sign-out/' + store.user.id,
+    url: config.apiOrigin + '/sign-out/' + store.user.id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
