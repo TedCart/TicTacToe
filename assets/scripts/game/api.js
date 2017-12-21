@@ -3,6 +3,7 @@
 const config = require('../config')
 const store = require('../store')
 
+
 const signUp = (data) => {
   // const json = JSON.stringify(data)
   return $.ajax({
