@@ -12,6 +12,10 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   text-align: center;
 }
 
+body {
+  background: $main-background-color;
+}
+
 .center-me {
   margin: 0 auto;
 }
