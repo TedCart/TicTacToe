@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>TicTacToe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -11,7 +11,66 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body class="container-fluid">
-
+    <body>
+      <header>
+        placeholder
+      </header>
+      <main>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 player-container medium-at-least">
+              Player 1 Side
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 center-me" id="game-board">
+              <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-4 blank-square">
+                  <div class="game-square y-top x-left" id=1>1</div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 blank-square">
+                  <div class="game-square y-top x-middle" id=2>2</div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 blank-square">
+                  <div class="game-square y-top x-right" id=3>3</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-4 blank-square">
+                  <div class="game-square y-middle x-left" id=4>4</div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 blank-square">
+                  <div class="game-square y-middle x-middle" id=5>5</div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 blank-square">
+                  <div class="game-square y-middle x-right" id=6>6</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-4 blank-square">
+                  <div class="game-square y-bottom x-left" id=7>7</div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 blank-square">
+                  <div class="game-square y-bottom x-middle" id=8>8</div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 blank-square">
+                  <div class="game-square y-bottom x-right" id=9>9</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 player-container medium-at-least">
+              Player 2 Side
+            </div>
+          </div>
+          <div class="row col-sm-12 center-me">
+            <div class="col-xs-5 player-container medium-less-than">
+              Player 1 Bottom
+            </div>
+            <div class="col-xs-5 player-container medium-less-than">
+              Player 2 Bottom
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+      </footer>
     </body>
 </html>

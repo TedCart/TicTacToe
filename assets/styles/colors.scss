@@ -7,5 +7,15 @@
 }
 
 $main-background-color: #ddd;
+$main-text-color: #000;
+$outline-color-test: #000;
 
 $header-background: #333;
+
+$game-square-text-color: $main-text-color;
+$game-square-background: $main-background-color;
+
+$player-text-color: $main-text-color;
+$player-background: $main-background-color;
+
+$grid-border: 10px solid #333;
