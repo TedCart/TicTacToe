@@ -40,6 +40,11 @@ body {
   display: block;
 }
 
+.message-box {
+  font-size: 3vw;
+  text-align: center;
+}
+
 .player-container {
   color: $player-text-color;
   font-size: 24px;

@@ -49,7 +49,7 @@ const WinnerWinner = function (winningTeam) {
   const messageSelector = Math.floor(Math.random() * winMessages.length)
 
   over = true
-  return winMessages[messageSelector]
+  $('#message-box').text(winMessages[messageSelector])
 }
 
 const tieGameMessage = function () {
@@ -65,7 +65,7 @@ const tieGameMessage = function () {
   ]
   const messageSelector = Math.floor(Math.random() * tieMessages.length)
   over = true
-  return tieMessages[messageSelector]
+  $('#message-box').text(tieMessages[messageSelector])
 }
 
 const trollText = function (teamInSquare) {
@@ -124,7 +124,7 @@ const trollText = function (teamInSquare) {
     `Are you doing this to me AGAIN?`
   ]
   if (wrongClicks > 3) {
-    return trollMessages[trollState++]
+    $('#message-box').text(trollMessages[trollState++])
   }
 }
 
@@ -202,6 +202,7 @@ const takeTurn = function () {
 
 const onSignUp = function (event) {
   const data = getFormFields(this)
+  console.log(data)
   event.preventDefault()
   api.signUp(data)
     .then(ui.signUpSuccess)
