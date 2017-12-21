@@ -34,7 +34,7 @@ const resetBoard = function () {
       $('.game-square')[i].removeAttribute('data-team')
     }
   }
-  $('#message-box').text('')
+  $('#message-box')[0].innerHTML = ''
 }
 
 const WinnerWinner = function (winningTeam) {
@@ -51,7 +51,8 @@ const WinnerWinner = function (winningTeam) {
   const messageSelector = Math.floor(Math.random() * winMessages.length)
 
   over = true
-  $('#message-box').text(winMessages[messageSelector] + '<p>Click anywhere on the board to play again...</p>')
+  $('#message-box').val(winMessages[messageSelector] + '<p>Click anywhere on the board to play again...</p>')
+  $('#message-box').append('<p>Click anywhere on the board to play again...</p>')
 }
 
 const tieGameMessage = function () {
@@ -67,7 +68,8 @@ const tieGameMessage = function () {
   ]
   const messageSelector = Math.floor(Math.random() * tieMessages.length)
   over = true
-  $('#message-box').text(tieMessages[messageSelector] + '<p>Click anywhere on the board to play again...</p>')
+  $('#message-box').val(tieMessages[messageSelector])
+  $('#message-box').append('<p>Click anywhere on the board to play again...</p>')
 }
 
 const trollText = function (teamInSquare) {
