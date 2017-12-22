@@ -33,8 +33,22 @@ const getAllGames = () => {
   })
 }
 
+const patchOffsite = function (data) {
+  const json = JSON.stringify(data)
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.game.id,
+    method: 'PATCH',
+    contentType: 'application/json',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: json
+  })
+}
+
 module.exports = {
   newGame,
   getGame,
-  getAllGames
+  getAllGames,
+  patchOffsite
 }

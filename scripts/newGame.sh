@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # sh scripts/newGame.sh
+
 curl "http://tic-tac-toe.wdibos.com/games" \
   --include \
   --request POST \

@@ -12,6 +12,34 @@ let trollState = 0
 
 let over = false // is game over? Not yet!!
 
+const onNewGame = function () {
+  api.newGame()
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
+}
+
+// returns a single game based on the current stored id
+// game is an object with id, cells, over, player_x, and player_o
+// (each player is an object with id number and email)
+const onGetGame = function () {
+  if (!store.game.id) {
+    console.log('We dont have a game ID to call')
+  } else {
+    api.getGame()
+      .then(ui.getGameSuccess)
+      .catch(ui.getGameFailure)
+  }
+}
+
+// returns all games based on the current player logged in
+// games (plural) is an object with keys 0, 1, 2, 3, etc. each referencing a game object
+// a game is an object with id, cells, over, player_x, and player_o (each player is an object with id number and email)
+const onGetAllGames = function () {
+  api.getAllGames()
+    .then(ui.getAllGamesSuccess)
+    .catch(ui.getAllGamesFailure)
+}
+
 // this boardArray represents the game-board. It's how we check for a winner.
 // it is 10 units long (instead of 9) so that the index of each element lines up with the
 // TicTacToe board like on a phone number pad.
@@ -35,6 +63,35 @@ const resetBoard = function () {
     }
   }
   $('#message-box').text('')
+  onNewGame()
+}
+
+const updateOffsite = function () {
+  // one day this function will patch the game object that the api has.
+  for (let i = 0; i < store.game.cells.length; i++) {
+    const gameSquareID = '#' + (i + 1)
+    if ($(gameSquareID)[0].dataset.team) {
+      let newLetter
+      if (boardArray[i + 1] === 0) {
+        newLetter = ''
+      } else if (boardArray[i + 1] === 1) {
+        newLetter = 'x'
+      } else {
+        newLetter = 'o'
+      }
+      store.game.cells[i] = newLetter
+      const newBoardInfo = {
+        game: {
+          cell: {
+            index: i,
+            value: newLetter
+          },
+          over: over
+        }
+      }
+      api.patchOffsite(newBoardInfo)
+    }
+  }
 }
 
 const WinnerWinner = function (winningTeam) {
@@ -188,7 +245,7 @@ const takeTurn = function () {
   } else {
     console.log(this)
     this.innerText = 'O'
-    this.setAttribute('team', 'O')
+    this.setAttribute('data-team', 'O')
     // use 2's for the O's because they go second
     boardArray[this.id] = 2
   }
@@ -201,34 +258,7 @@ const takeTurn = function () {
     }
     console.log(boardArray)
   }
-}
-
-const onNewGame = function () {
-  api.newGame()
-    .then(ui.newGameSuccess)
-    .catch(ui.newGameFailure)
-}
-
-// returns a single game based on the current stored id
-// game is an object with id, cells, over, player_x, and player_o
-// (each player is an object with id number and email)
-const onGetGame = function () {
-  if (!store.game.id) {
-    console.log('We dont have a game ID to call')
-  } else {
-    api.getGame()
-      .then(ui.getGameSuccess)
-      .catch(ui.getGameFailure)
-  }
-}
-
-// returns all games based on the current player logged in
-// games (plural) is an object with keys 0, 1, 2, 3, etc. each referencing a game object
-// a game is an object with id, cells, over, player_x, and player_o (each player is an object with id number and email)
-const onGetAllGames = function () {
-  api.getAllGames()
-    .then(ui.getAllGamesSuccess)
-    .catch(ui.getAllGamesFailure)
+  updateOffsite()
 }
 
 const addHandlers = function () {
