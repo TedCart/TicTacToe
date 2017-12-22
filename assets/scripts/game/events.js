@@ -3,6 +3,7 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 
 const api = require('./api')
+const ui = require('./ui')
 const store = require('../store')
 
 let turnsTaken = 0
@@ -202,10 +203,18 @@ const takeTurn = function () {
   }
 }
 
+const onGetNewGame = function () {
+  api.getNewGame()
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
+}
+
 const addHandlers = function () {
+  onGetNewGame()
   $('.game-square').on('click', takeTurn)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onGetNewGame
 }

@@ -16,8 +16,15 @@ $(() => {
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
+const simpleSignIn = () => {
+  // placeholder - will autofill sign-in boxes for later convenience
+  $('#sign-in-email').val('okherewego')
+  $('#sign-in-password').val('jack')
+}
+
 $(() => {
   events.addHandlers()
   ui.toggleSignInButtons()
   gameEvents.addHandlers()
+  simpleSignIn()
 })

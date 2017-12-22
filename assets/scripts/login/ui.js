@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store')
+const gameEvents = require('../game/events')
 
 const clearFields = function () {
   $('input:text, input:password').val('')
@@ -23,12 +24,14 @@ const toggleSignInButtons = function () {
 
 const signUpSuccess = function (data) {
   console.log(data)
+  $('#message-box').text('Successfully created account!')
   clearFields()
   toggleSignInButtons()
 }
 
 const signUpFailure = function (error) {
   console.error(error)
+  $('#message-box').text('FAIL. Check your info.')
   clearFields()
 }
 
@@ -38,6 +41,7 @@ const signInSuccess = function (data) {
   store.user = data.user
   clearFields()
   toggleSignInButtons()
+  gameEvents.onGetNewGame()
 }
 
 const signInFailure = function (error) {

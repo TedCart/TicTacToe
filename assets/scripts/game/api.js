@@ -3,17 +3,16 @@
 const config = require('../config')
 const store = require('../store')
 
-const createExample = (data) => {
+const getNewGame = () => {
   return $.ajax({
-    url: config.apiOrigin + '/examples',
+    url: config.apiOrigin + '/games',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data
+    }
   })
 }
 
 module.exports = {
-  createExample
+  getNewGame
 }
