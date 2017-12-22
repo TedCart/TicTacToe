@@ -46,13 +46,13 @@ body {
 }
 
 .message-box {
-  font-size: 8vw;
+  font-size: $message-box-font-size;
   text-align: center;
 }
 
 .player-container {
   color: $player-text-color;
-  font-size: 24px;
+  font-size: $player-container-font-size;
   height: 100%;
   outline: 1px solid $outline-color-test;
   text-align: center;
