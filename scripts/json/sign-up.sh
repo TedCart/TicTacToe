@@ -2,7 +2,7 @@
 
 # sh scripts/json/sign-up.sh
 
-curl "https://ga-library-api.herokuapp.com/sign-up" \
+curl "http://tic-tac-toe.wdibos.com/sign-up" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
