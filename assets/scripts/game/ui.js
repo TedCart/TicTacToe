@@ -30,9 +30,19 @@ const getGameFailure = function (error) {
   console.log(error)
 }
 
+const getAllGamesSuccess = function (data) {
+  console.log(data)
+}
+
+const getAllGamesFailure = function (error) {
+  console.log(error)
+}
+
 module.exports = {
   newGameSuccess,
   newGameFailure,
   getGameSuccess,
-  getGameFailure
+  getGameFailure,
+  getAllGamesSuccess,
+  getAllGamesFailure
 }

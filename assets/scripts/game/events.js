@@ -209,6 +209,9 @@ const onNewGame = function () {
     .catch(ui.newGameFailure)
 }
 
+// returns a single game based on the current stored id
+// game is an object with id, cells, over, player_x, and player_o
+// (each player is an object with id number and email)
 const onGetGame = function () {
   if (!store.game.id) {
     console.log('We dont have a game ID to call')
@@ -219,6 +222,15 @@ const onGetGame = function () {
   }
 }
 
+// returns all games based on the current player logged in
+// games (plural) is an object with keys 0, 1, 2, 3, etc. each referencing a game object
+// a game is an object with id, cells, over, player_x, and player_o (each player is an object with id number and email)
+const onGetAllGames = function () {
+  api.getAllGames()
+    .then(ui.getAllGamesSuccess)
+    .catch(ui.getAllGamesFailure)
+}
+
 const addHandlers = function () {
   $('.game-square').on('click', takeTurn)
 }
@@ -226,5 +238,6 @@ const addHandlers = function () {
 module.exports = {
   addHandlers,
   onNewGame,
-  onGetGame
+  onGetGame,
+  onGetAllGames
 }
