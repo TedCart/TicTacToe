@@ -203,18 +203,17 @@ const takeTurn = function () {
   }
 }
 
-const onGetNewGame = function () {
-  api.getNewGame()
+const onNewGame = function () {
+  api.newGame()
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)
 }
 
 const addHandlers = function () {
-  onGetNewGame()
   $('.game-square').on('click', takeTurn)
 }
 
 module.exports = {
   addHandlers,
-  onGetNewGame
+  onNewGame
 }

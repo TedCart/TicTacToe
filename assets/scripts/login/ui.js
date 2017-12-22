@@ -41,7 +41,7 @@ const signInSuccess = function (data) {
   store.user = data.user
   clearFields()
   toggleSignInButtons()
-  gameEvents.onGetNewGame()
+  gameEvents.onNewGame()
 }
 
 const signInFailure = function (error) {

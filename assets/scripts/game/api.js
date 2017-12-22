@@ -3,7 +3,7 @@
 const config = require('../config')
 const store = require('../store')
 
-const getNewGame = () => {
+const newGame = () => {
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'POST',
@@ -14,5 +14,5 @@ const getNewGame = () => {
 }
 
 module.exports = {
-  getNewGame
+  newGame
 }
