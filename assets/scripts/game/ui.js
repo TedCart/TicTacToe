@@ -20,7 +20,19 @@ const newGameFailure = function (error) {
   console.log(error)
 }
 
+const getGameSuccess = function (data) {
+  console.log(data)
+  console.log('data.game.cells returns this: ', data.game.cells)
+  console.log('hopefully thats a useful array')
+}
+
+const getGameFailure = function (error) {
+  console.log(error)
+}
+
 module.exports = {
   newGameSuccess,
-  newGameFailure
+  newGameFailure,
+  getGameSuccess,
+  getGameFailure
 }

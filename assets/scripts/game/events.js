@@ -209,11 +209,22 @@ const onNewGame = function () {
     .catch(ui.newGameFailure)
 }
 
+const onGetGame = function () {
+  if (!store.game.id) {
+    console.log('We dont have a game ID to call')
+  } else {
+    api.getGame()
+      .then(ui.getGameSuccess)
+      .catch(ui.getGameFailure)
+  }
+}
+
 const addHandlers = function () {
   $('.game-square').on('click', takeTurn)
 }
 
 module.exports = {
   addHandlers,
-  onNewGame
+  onNewGame,
+  onGetGame
 }

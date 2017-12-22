@@ -13,6 +13,17 @@ const newGame = () => {
   })
 }
 
+const getGame = () => {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.game.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
-  newGame
+  newGame,
+  getGame
 }
