@@ -10,7 +10,7 @@ let turnsTaken = 0
 let wrongClicks = 0
 let trollState = 0
 
-let over = false // is game over? Not yet!!
+let over = false // is it game over? Not yet!!
 
 const onNewGame = function () {
   api.newGame()
