@@ -20,6 +20,6 @@ $(() => {
   events.addHandlers()
   ui.toggleSignInButtons()
   gameEvents.addHandlers()
-  $('#sign-in-email').val('okherewego')
-  $('#sign-in-password').val('jack')
+  // $('#sign-in-email').val('okherewego')
+  // $('#sign-in-password').val('jack')
 })
