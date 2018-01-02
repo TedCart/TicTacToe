@@ -44,6 +44,14 @@ const onGetAllGames = function () {
   }
 }
 
+const onGetAllCompletedGames = function () {
+  if (store.user) {
+    api.getAllGames()
+      .then(ui.getAllGamesSuccess)
+      .catch(ui.getAllGamesFailure)
+  }
+}
+
 // this boardArray represents the game-board. It's how we check for a winner.
 // it is 10 units long (instead of 9) so that the index of each element lines up with the
 // TicTacToe board like on a phone number pad.
@@ -281,5 +289,6 @@ module.exports = {
   addHandlers,
   onNewGame,
   onGetGame,
-  onGetAllGames
+  onGetAllGames,
+  onGetAllCompletedGames
 }

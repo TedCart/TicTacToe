@@ -42,6 +42,19 @@ const getAllGames = () => {
   }
 }
 
+const getAllCompletedGames = () => {
+  // Verifies a user is logged in before getting all games
+  if (store.user) {
+    return $.ajax({
+      url: config.apiOrigin + '/games[?over=]',
+      method: 'GET',
+      headers: {
+        Authorization: 'Token token=' + store.user.token
+      }
+    })
+  }
+}
+
 const patchOffsite = function (data) {
   // Verifies a user is logged in before updating a game
   if (store.user) {
@@ -62,5 +75,6 @@ module.exports = {
   newGame,
   getGame,
   getAllGames,
+  getAllCompletedGames,
   patchOffsite
 }

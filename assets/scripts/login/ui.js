@@ -7,6 +7,21 @@ const clearFields = function () {
   $('input:text, input:password').val('')
 }
 
+const fetchPlayerProfile = function () {
+  if (store.user) {
+    let HTMLstring = ''
+    HTMLstring = HTMLstring + '<p> Player 1: ' + store.user.email + '</p>'
+    const gameList = gameEvents.onGetAllCompletedGames()
+    if (gameList) {
+      HTMLstring = HTMLstring + '<p> Games Completed: ' + gameList.length + '</p>'
+    } else {
+      HTMLstring = HTMLstring + '<p> Games Completed: ' + '0' + '</p>'
+    }
+    $('#player-one-side').html(HTMLstring)
+    $('#player-one-bottom').html(HTMLstring)
+  }
+}
+
 const toggleSignInButtons = function () {
   console.log(store.user)
   if (store.user) {
@@ -41,6 +56,7 @@ const signInSuccess = function (data) {
   store.user = data.user
   clearFields()
   toggleSignInButtons()
+  fetchPlayerProfile()
   gameEvents.onNewGame()
 }
 
