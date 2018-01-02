@@ -10,15 +10,16 @@ const clearFields = function () {
 const fetchPlayerProfile = function () {
   if (store.user) {
     let HTMLstring = ''
-    HTMLstring = HTMLstring + '<p> Player 1: ' + store.user.email + '</p>'
-    const gameList = gameEvents.onGetAllCompletedGames()
-    if (gameList) {
-      HTMLstring = HTMLstring + '<p> Games Completed: ' + gameList.length + '</p>'
-    } else {
-      HTMLstring = HTMLstring + '<p> Games Completed: ' + '0' + '</p>'
-    }
-    $('#player-one-side').html(HTMLstring)
-    $('#player-one-bottom').html(HTMLstring)
+    HTMLstring = HTMLstring + '<p>Player 1: ' + store.user.email + '</p>'
+    setTimeout(() => {
+      if (store.completedGames) {
+        HTMLstring = HTMLstring + '<p>Games Played: ' + store.completedGames.length + '</p>'
+      } else {
+        HTMLstring = HTMLstring + '<p>Games Played: ' + '0' + '</p>'
+      }
+      $('#player-one-side').html(HTMLstring)
+      $('#player-one-bottom').html(HTMLstring)
+    }, 500)
   }
 }
 
@@ -54,6 +55,7 @@ const signInSuccess = function (data) {
   console.log(data)
   $('#message-box').text('Successfully signed in!')
   store.user = data.user
+  gameEvents.onGetAllCompletedGames()
   clearFields()
   toggleSignInButtons()
   fetchPlayerProfile()

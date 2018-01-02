@@ -46,7 +46,7 @@ const getAllCompletedGames = () => {
   // Verifies a user is logged in before getting all games
   if (store.user) {
     return $.ajax({
-      url: config.apiOrigin + '/games[?over=true]',
+      url: config.apiOrigin + '/games?over=true',
       method: 'GET',
       headers: {
         Authorization: 'Token token=' + store.user.token

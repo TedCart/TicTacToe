@@ -46,7 +46,7 @@ const onGetAllGames = function () {
 
 const onGetAllCompletedGames = function () {
   if (store.user) {
-    api.getAllGames()
+    api.getAllCompletedGames()
       .then(ui.getAllCompletedGamesSuccess)
       .catch(ui.getAllCompletedGamesFailure)
   }
