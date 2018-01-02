@@ -13,9 +13,11 @@ let trollState = 0
 let over = false // is it game over? Not yet!!
 
 const onNewGame = function () {
-  api.newGame()
-    .then(ui.newGameSuccess)
-    .catch(ui.newGameFailure)
+  if (store.user) {
+    api.newGame()
+      .then(ui.newGameSuccess)
+      .catch(ui.newGameFailure)
+  }
 }
 
 // returns a single game based on the current stored id
@@ -35,9 +37,11 @@ const onGetGame = function () {
 // games (plural) is an object with keys 0, 1, 2, 3, etc. each referencing a game object
 // a game is an object with id, cells, over, player_x, and player_o (each player is an object with id number and email)
 const onGetAllGames = function () {
-  api.getAllGames()
-    .then(ui.getAllGamesSuccess)
-    .catch(ui.getAllGamesFailure)
+  if (store.user) {
+    api.getAllGames()
+      .then(ui.getAllGamesSuccess)
+      .catch(ui.getAllGamesFailure)
+  }
 }
 
 // this boardArray represents the game-board. It's how we check for a winner.
@@ -72,29 +76,32 @@ const resetBoard = function () {
 }
 
 const updateOffsite = function () {
-  // This updates the game file through the api, otherwise the game would only run locally and nothing would matter
-  for (let i = 0; i < store.game.cells.length; i++) {
-    const gameSquareID = '#' + (i + 1)
-    if ($(gameSquareID)[0].dataset.team) {
-      let newLetter
-      if (boardArray[i + 1] === 0) {
-        newLetter = ''
-      } else if (boardArray[i + 1] === 1) {
-        newLetter = 'x'
-      } else {
-        newLetter = 'o'
-      }
-      store.game.cells[i] = newLetter
-      const newBoardInfo = {
-        game: {
-          cell: {
-            index: i,
-            value: newLetter
-          },
-          over: over
+  // This updates the api's game file, otherwise the game will only run locally
+  // This function only runs if a player is logged in.
+  if (store.user) {
+    for (let i = 0; i < store.game.cells.length; i++) {
+      const gameSquareID = '#' + (i + 1)
+      if ($(gameSquareID)[0].dataset.team) {
+        let newLetter
+        if (boardArray[i + 1] === 0) {
+          newLetter = ''
+        } else if (boardArray[i + 1] === 1) {
+          newLetter = 'x'
+        } else {
+          newLetter = 'o'
         }
+        store.game.cells[i] = newLetter
+        const newBoardInfo = {
+          game: {
+            cell: {
+              index: i,
+              value: newLetter
+            },
+            over: over
+          }
+        }
+        api.patchOffsite(newBoardInfo)
       }
-      api.patchOffsite(newBoardInfo)
     }
   }
 }
@@ -267,6 +274,7 @@ const takeTurn = function () {
 
 const addHandlers = function () {
   $('.game-square').on('click', takeTurn)
+  $('#special-button').on('click', onGetAllGames)
 }
 
 module.exports = {
