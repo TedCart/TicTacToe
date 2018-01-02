@@ -50,6 +50,11 @@ Element.prototype.remove = function () {
   this.parentElement.removeChild(this)
 }
 
+const gameOverMessageFunction = function (gameMessage) {
+  const messageHTML = '<p>' + gameMessage + '</p><p>Click board to play again</p>'
+  $('#message-box').html(messageHTML)
+}
+
 const resetBoard = function () {
   // Set turnsTaken to 0
   turnsTaken = 0
@@ -67,7 +72,7 @@ const resetBoard = function () {
 }
 
 const updateOffsite = function () {
-  // one day this function will patch the game object that the api has.
+  // This updates the game file through the api, otherwise the game would only run locally and nothing would matter
   for (let i = 0; i < store.game.cells.length; i++) {
     const gameSquareID = '#' + (i + 1)
     if ($(gameSquareID)[0].dataset.team) {
@@ -108,8 +113,7 @@ const WinnerWinner = function (winningTeam) {
   const messageSelector = Math.floor(Math.random() * winMessages.length)
 
   over = true
-  $('#message-box').text(winMessages[messageSelector])
-  // $('#message-box').append('<p>Click anywhere on the board to play again...</p>')
+  gameOverMessageFunction(winMessages[messageSelector])
 }
 
 const tieGameMessage = function () {
@@ -125,7 +129,7 @@ const tieGameMessage = function () {
   ]
   const messageSelector = Math.floor(Math.random() * tieMessages.length)
   over = true
-  $('#message-box').text(tieMessages[messageSelector])
+  gameOverMessageFunction(tieMessages[messageSelector])
   // $('#message-box').append('<p>Click anywhere on the board to play again...</p>')
 }
 

@@ -64,7 +64,7 @@ const changePasswordFailure = function (error) {
 const signOutSuccess = function (data) {
   // console.log(data)
   store.user = ''
-  $('#message-box').text('You signed out!')
+  $('#message-box').text(`You signed out!`)
   clearFields()
   toggleSignInButtons()
 }
