@@ -31,10 +31,20 @@ const getGameFailure = function (error) {
 }
 
 const getAllGamesSuccess = function (data) {
+  store.games = data.games
   console.log(data)
 }
 
 const getAllGamesFailure = function (error) {
+  console.log(error)
+}
+
+const getAllCompletedGamesSuccess = function (data) {
+  store.games = data.games
+  console.log(data)
+}
+
+const getAllCompletedGamesFailure = function (error) {
   console.log(error)
 }
 
@@ -44,5 +54,7 @@ module.exports = {
   getGameSuccess,
   getGameFailure,
   getAllGamesSuccess,
-  getAllGamesFailure
+  getAllGamesFailure,
+  getAllCompletedGamesSuccess,
+  getAllCompletedGamesFailure
 }
