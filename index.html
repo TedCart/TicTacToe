@@ -12,38 +12,41 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <!-- <header>
-        placeholder
-      </header> -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#" id="special-button">TicTacToe</a>
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon">toggle-icon</span>
-        </button> -->
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
-            <form id="sign-in-form">
-              <input name="credentials[email]" type="text" placeholder="Username" id="sign-in-email">
-              <input name="credentials[password]" type="password" placeholder="Password" id="sign-in-password">
-              <input type="submit" class="btn btn-primary" value="Sign In">
-            </form>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createAccount" id="createAccountButton">
-              Create Account
-            </button>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changePassword" id="changePasswordButton">
-              Change Password
-            </button>
-            <form id=sign-out>
-              <input type="text" name="fake[data]" value="spacetakerupper" style="display: none;">
-              <button type="submit" class="btn btn-primary">
-                Sign Out
+      <div class="container">
+        <header>
+          <h1>TicTacToe</h1>
+          <h2 id="game-subtitle"></h2>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#" id="special-button">#</a>
+          <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">toggle-icon</span>
+          </button> -->
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav" style="float:right;">
+              <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
+              <form id="sign-in-form">
+                <input name="credentials[email]" type="text" placeholder="Username" id="sign-in-email">
+                <input name="credentials[password]" type="password" placeholder="Password" id="sign-in-password">
+                <input type="submit" class="btn btn-primary" value="Sign In">
+              </form>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createAccount" id="createAccountButton">
+                Create New Account
               </button>
-            </form>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changePassword" id="changePasswordButton">
+                Change Password
+              </button>
+              <form id=sign-out>
+                <input type="text" name="fake[data]" value="spacetakerupper" style="display: none;">
+                <button type="submit" class="btn btn-primary">
+                  Sign Out
+                </button>
+              </form>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
       <div class="container message-box" id="message-box">
       </div>
       <main>
@@ -103,10 +106,12 @@
           </div>
         </div>
       </main>
-      <footer class="clearfix">
-      	<p class="copyright" style="float: left;">Copyright 2017</p>
-      	<p class="message" style="float: right;">Created with &hearts; by <span class="name">Ted Cart</span></p>
-      </footer>
+      <div class="container">
+        <footer class="clearfix">
+        	<p class="copyright" style="float: left;">Copyright 2017</p>
+        	<p class="message" style="float: right;">A Ted Cart Project</p>
+        </footer>
+      </div>
       <div class="modal fade" id="createAccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
