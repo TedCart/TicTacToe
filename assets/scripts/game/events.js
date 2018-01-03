@@ -308,5 +308,6 @@ module.exports = {
   onNewGame,
   onGetGame,
   onGetAllGames,
-  onGetAllCompletedGames
+  onGetAllCompletedGames,
+  newTitle
 }
