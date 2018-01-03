@@ -12,12 +12,29 @@ let trollState = 0
 
 let over = false // is it game over? Not yet!!
 
+const newTitle = function () {
+  const things = [
+    `Ticky-Tacky`,
+    `Hashtag: The Game`,
+    `The Toc-Tack-Tick`,
+    `Broken Clock Sounds`,
+    `X vs. O: The Ultimate Showdown`,
+    `It's Fun. Shut up.`,
+    `If anyone wins, you should both feel bad.`,
+    `Because there's literally nothing else to do`,
+    `2 letters enter, 1 letter leaves...`
+  ]
+  const messageSelector = Math.floor(Math.random() * things.length)
+  $('#game-subtitle').text(things[messageSelector])
+}
+
 const onNewGame = function () {
   if (store.user) {
     api.newGame()
       .then(ui.newGameSuccess)
       .catch(ui.newGameFailure)
   }
+  newTitle()
 }
 
 // returns a single game based on the current stored id
@@ -283,6 +300,7 @@ const takeTurn = function () {
 const addHandlers = function () {
   $('.game-square').on('click', takeTurn)
   $('#special-button').on('click', onGetAllGames)
+  $('header').on('click', newTitle)
 }
 
 module.exports = {
