@@ -261,8 +261,8 @@ const checkForWin = function () {
 }
 
 const takeTurn = function () {
-  console.log(this)
-  console.log('turnsTaken', turnsTaken)
+  // console.log(this)
+  // console.log('turnsTaken', turnsTaken)
   if ((turnsTaken === 9) || (over)) {
     // this resets the board if 9 turns have already happened
     resetBoard()
@@ -273,13 +273,13 @@ const takeTurn = function () {
     trollText(boardArray[this.id])
     return
   } else if ((turnsTaken % 2) === 0) {
-    console.log(this)
+    // console.log(this)
     this.innerText = 'X'
     this.setAttribute('data-team', 'X')
     // use 1's for the X's because they go first
     boardArray[this.id] = 1
   } else {
-    console.log(this)
+    // console.log(this)
     this.innerText = 'O'
     this.setAttribute('data-team', 'O')
     // use 2's for the O's because they go second
@@ -292,7 +292,7 @@ const takeTurn = function () {
     } else if (turnsTaken === 9) {
       tieGameMessage()
     }
-    console.log(boardArray)
+    // console.log(boardArray)
   }
   updateOffsite()
 }
