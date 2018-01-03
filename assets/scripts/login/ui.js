@@ -11,15 +11,16 @@ const clearFields = function () {
 const fetchPlayerProfile = function () {
   if (store.user) {
     let HTMLstring = ''
-    HTMLstring = HTMLstring + '<p>Player 1: ' + store.user.email + '</p>'
+    HTMLstring = HTMLstring + '<dt>Player 1:</dt><dd>' + store.user.email + '</dd>'
     gameApi.getAllCompletedGames()
       .then((data) => {
         store.completedGames = data.games
         if (store.completedGames) {
-          HTMLstring = HTMLstring + '<p>Games Played: ' + store.completedGames.length + '</p>'
+          HTMLstring = HTMLstring + '<dt>Games Played:</dt><dd>' + store.completedGames.length + '</dd>'
         } else {
-          HTMLstring = HTMLstring + '<p>Games Played: ' + '0' + '</p>'
+          HTMLstring = HTMLstring + '<dt>Games Played:</dt><dd>' + '0' + '</dd>'
         }
+        HTMLstring = HTMLstring + '</dl>'
         $('#player-one-side').html(HTMLstring)
         $('#player-one-bottom').html(HTMLstring)
       })
