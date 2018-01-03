@@ -17,7 +17,7 @@ const newTitle = function () {
     `Ticky-Tacky`,
     `Hashtag: The Game`,
     `The Toc-Tack-Tick`,
-    `Broken Clock Sounds`,
+    `A game of broken clock sounds`,
     `X vs. O: The Ultimate Showdown`,
     `It's Fun. Shut up.`,
     `If anyone wins, you should both feel bad.`,
