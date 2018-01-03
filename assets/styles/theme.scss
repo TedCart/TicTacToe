@@ -72,12 +72,38 @@ h1 {
   text-align: center;
 }
 
+.player-bottombox {
+  color: $main-background-color;
+  font-size: 4vh;
+  outline: 1px solid #ff0000;
+  padding-bottom: 35%;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+}
+
+.player-sidebox {
+  color: $main-background-color;
+  font-size: 4vh;
+  outline: 1px solid #ff0000;
+  padding-bottom: 50%;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+}
+
 .player-container {
+  box-sizing: border-box;
   color: $player-text-color;
   font-size: $player-container-font-size;
-  // height: 100%;
-  outline: 1px solid $outline-color-test;
-  text-align: center;
+  height: 100%;
+  margin: 0;
+  // outline: 1px solid $outline-color-test;
+  outline: 1px solid blue;
+  padding-left: 8%;
+  position: absolute;
+  text-align: left;
+  width: 100%;
 }
 
 .x-left {

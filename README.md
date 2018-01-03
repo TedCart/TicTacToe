@@ -2,7 +2,7 @@ Hello!
 
 Welcome to my first project from General Assembly.
 
-Ready, Fire, Aim
+## Ready, Fire, Aim
 
 On day 1 of class they mentioned TicTacToe was the first project, but we wouldn't get the assignment for a few more weeks. I started on it anyway, knowing just enough javascript from our pre-work assignments to build the board and game logic.
 
@@ -24,13 +24,13 @@ To reset the board, I just cleared the divs, their attribute data, set turnsTake
 
 None of this is in the commit history, but that's what happens when you start the project before...
 
-Proper Project Time
+## Proper Project Time
 
 When we finally received the TicTacToe project I created a proper git repo and GitHub page.
 
 I had to refactor a number of things. I replaced javascript commands with jQuery (so no more "document.getElementById" or the like). I built a new page-source from scratch instead of using the memory game framework. I remade the board with Bootstrap so it would scale in mobile. I translated my board array for API calls since I used a different format than it did. I created a sign-in process using a framework we learned in class.
 
-Stretch Goals
+## Stretch Goals
 
 Playing from multiple browsers. I also added some troll responses if a player continues to click a square that's already occupied.
 
