@@ -2,6 +2,7 @@
 
 const store = require('../store')
 const gameEvents = require('../game/events')
+const gameApi = require('../game/api')
 
 const clearFields = function () {
   $('input:text, input:password').val('')
@@ -11,8 +12,9 @@ const fetchPlayerProfile = function () {
   if (store.user) {
     let HTMLstring = ''
     HTMLstring = HTMLstring + '<p>Player 1: ' + store.user.email + '</p>'
-    gameEvents.onGetAllCompletedGames()
-      .then(() => {
+    gameApi.getAllCompletedGames()
+      .then((data) => {
+        store.completedGames = data.games
         if (store.completedGames) {
           HTMLstring = HTMLstring + '<p>Games Played: ' + store.completedGames.length + '</p>'
         } else {
@@ -29,11 +31,11 @@ const toggleSignInButtons = function () {
   if (store.user) {
     $('#sign-in-form').css('display', 'none')
     $('#createAccountButton').css('display', 'none')
-    $('#changePasswordButton').css('display', 'block')
-    $('#sign-out').css('display', 'block')
+    $('#changePasswordButton').css('display', 'inline-block')
+    $('#sign-out').css('display', 'inline-block')
   } else {
-    $('#sign-in-form').css('display', 'block')
-    $('#createAccountButton').css('display', 'block')
+    $('#sign-in-form').css('display', 'inline-block')
+    $('#createAccountButton').css('display', 'inline-block')
     $('#changePasswordButton').css('display', 'none')
     $('#sign-out').css('display', 'none')
   }
