@@ -30,9 +30,21 @@ When we finally received the TicTacToe project I created a proper git repo and G
 
 I had to refactor a number of things. I replaced javascript commands with jQuery (so no more "document.getElementById" or the like). I built a new page-source from scratch instead of using the memory game framework. I remade the board with Bootstrap so it would scale in mobile. I translated my board array for API calls since I used a different format than it did. I created a sign-in process using a framework we learned in class.
 
+## Flavor Text
+
+TicTacToe is boring. That's why I added a bunch of snarky stuff that might or might not be funny - I don't know you. For example, if you click on the same square a bunch, the game will chastise you/plead with you not to do that. The victory/tie game messages are randomized (and sometimes nonsense). The subtitle of the header changes randomly too.
+
 ## Stretch Goals
 
-Playing from multiple browsers. I also added some troll responses if a player continues to click a square that's already occupied.
+Initially I wanted to include multiplayer. I also have a way (theoretically) to create a chat between two players, but because the API doesn't support chat natively it would be a work around. Using the same API that stores new games, if both players are watching TWO games instead of one, one of those would be the actual TicTacToe game and the other would be a conduit for chat. Changes to that second "game" would appear in a chat box. I'm unclear on the limitations of the server (such as how long an array can be - it's supposed be 9 but could it be longer? Could it hold an entire conversation?) but at a bare minimum the chat could be saved on each user's HTML.
+
+The multiplayer API requires player 2 to know the game id (which is impractical, but it works). So then when a new player joins, the new "game" (which is actually for chat) would also require a game id. However, this part could be automated by passing the new game id thru the existing game, perhaps in an empty square (before it's overwritten with an x or o) or thru an extra index in the array. That kind of change would trigger the chat box to setup, which would send user inputs from an input box to the "game" (chat) and effectively create a line of communication.
+
+Once chat is functional, it could also tell both players the ID of their next game so they don't have to share that information through a separate form of communication. Perhaps a function can connect them to that new game without having one player enter the number manually again.
+
+The two minute timeout of the "watch" API could make this impractical, but perhaps the timeout event could cause to chat to reinstigate.
+
+All of this is theoretical and requires a great deal of tinkering on my part, but I think the logic is sound.
 
 The live game can be found at this link:
   https://tedcart.github.io/TicTacToe/index.html

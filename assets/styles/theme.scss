@@ -14,6 +14,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 body {
   background: $main-background-color;
+  position: relative;
 }
 
 .center-me {
@@ -36,10 +37,10 @@ footer {
 .game-square {
   box-sizing: border-box;
   color: $game-square-text-color;
-  font-size: 6vw;
+  font-size: 10vh;
   height: 100%;
   margin: 0;
-  padding-top: 15%;
+  padding-top: 5%;
   position: absolute;
   text-align: center;
   width: 100%;

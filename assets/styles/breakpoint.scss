@@ -34,3 +34,14 @@
     // visibility: hidden;
   }
 }
+
+.game-square {
+  @include breakpoint(less-medium) {
+    font-size: 7vh;
+    // visibility: visible;
+  }
+  // @include breakpoint(medium) {
+  //   display: none;
+  //   // visibility: hidden;
+  // }
+}
