@@ -12,6 +12,8 @@ let trollState = 0
 
 let over = false // is it game over? Not yet!!
 
+const offlineMesssage = `<p class="message-offline">You are playing offline. This game won't be saved. Login if you want to save and review player stats.</p>`
+
 const newTitle = function () {
   const things = [
     `Ticky-Tacky`,
@@ -28,11 +30,21 @@ const newTitle = function () {
   $('#game-subtitle').text(things[messageSelector])
 }
 
+const checkForOnline = function () {
+  if (store.user) {
+    $('#offline-message-box').html('')
+  } else {
+    $('#offline-message-box').html(offlineMesssage)
+  }
+}
+
 const onNewGame = function () {
+  checkForOnline()
   if (store.user) {
     api.newGame()
       .then(ui.newGameSuccess)
       .catch(ui.newGameFailure)
+    $('#offline-message-box').html('')
   }
   newTitle()
 }
@@ -42,7 +54,7 @@ const onNewGame = function () {
 // (each player is an object with id number and email)
 const onGetGame = function () {
   if (!store.game.id) {
-    console.log('We dont have a game ID to call')
+    // console.log('We dont have a game ID to call')
   } else {
     api.getGame()
       .then(ui.getGameSuccess)
@@ -217,10 +229,22 @@ const trollText = function (teamInSquare) {
     `I honestly don't know what you want from me.`,
     `It's like you're doing this on purpose.`,
     `Have you done this before?`,
-    `Are you doing this to me AGAIN?`
+    `Are you doing this to me AGAIN?`,
+    `I will make this game disappear.`,
+    `I'm serious.`,
+    `No more game.`,
+    `Here it goes!`,
+    `Ready?`,
+    `3`,
+    `2`,
+    `1`,
+    `Thank you for "playing" TicTacToe. You have been barred.`
   ]
   if (wrongClicks > 3) {
     $('#message-box').text(trollMessages[trollState++])
+  }
+  if (trollState >= trollMessages.length) {
+    document.getElementsByTagName('main')[0].style.display = `none`
   }
 }
 
@@ -263,6 +287,7 @@ const checkForWin = function () {
 const takeTurn = function () {
   // console.log(this)
   // console.log('turnsTaken', turnsTaken)
+  checkForOnline()
   if ((turnsTaken === 9) || (over)) {
     // this resets the board if 9 turns have already happened
     resetBoard()

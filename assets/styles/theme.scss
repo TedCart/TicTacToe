@@ -82,6 +82,11 @@ h2 {
   text-align: center;
 }
 
+.message-offline {
+  background-color: $offline-background;
+  color: $main-background-color;
+}
+
 .player-bottombox {
   color: $main-background-color;
   font-size: 4vh;

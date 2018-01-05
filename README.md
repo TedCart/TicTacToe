@@ -49,12 +49,12 @@ All of this is theoretical and requires a great deal of tinkering on my part, bu
 The live game can be found at this link:
   https://tedcart.github.io/TicTacToe/index.html
 
-  ## Technologies Used
+## Technologies Used
 
   - Bootstrap
   - HTML
   - SCSS
   - Javascript
-  - AJAX requests
-  - breakpoints
-  - elbow grease (est. 1934)
+  - AJAX
+  - Breakpoints
+  - Elbow grease (est. 1934)
