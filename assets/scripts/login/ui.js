@@ -28,7 +28,7 @@ const fetchPlayerProfile = function () {
 }
 
 const toggleSignInButtons = function () {
-  console.log(store.user)
+  // console.log(store.user)
   if (store.user) {
     $('#sign-in-form').css('display', 'none')
     $('#createAccountButton').css('display', 'none')
@@ -43,7 +43,7 @@ const toggleSignInButtons = function () {
 }
 
 const signUpSuccess = function (data) {
-  console.log(data)
+  // console.log(data)
   $('#message-box').text('Successfully created account!')
   clearFields()
   toggleSignInButtons()
@@ -56,7 +56,7 @@ const signUpFailure = function (error) {
 }
 
 const signInSuccess = function (data) {
-  console.log(data)
+  // console.log(data)
   $('#message-box').text('Successfully signed in!')
   store.user = data.user
   clearFields()
@@ -72,7 +72,7 @@ const signInFailure = function (error) {
 }
 
 const changePasswordSuccess = function (data) {
-  console.log(data)
+  // console.log(data)
   clearFields()
   toggleSignInButtons()
 }
