@@ -32,7 +32,7 @@ const getGameFailure = function (error) {
 
 const getAllGamesSuccess = function (data) {
   store.games = data.games
-  console.log(data)
+  // console.log(data)
 }
 
 const getAllGamesFailure = function (error) {
@@ -41,7 +41,7 @@ const getAllGamesFailure = function (error) {
 
 const getAllCompletedGamesSuccess = function (data) {
   store.completedGames = data.games
-  console.log(data)
+  // console.log(data)
 }
 
 const getAllCompletedGamesFailure = function (error) {

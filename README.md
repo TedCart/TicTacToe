@@ -58,3 +58,17 @@ The live game can be found at this link:
   - AJAX
   - Breakpoints
   - Elbow grease (est. 1934)
+
+## User Stories and Praise for TicTacToe
+
+*"Playing TicTacToe made me who I am today."*
+
+*"Before I played TicTacToe I was unemployed and homeless. Now I have a job and a home. Thanks, TicTacToe!"*
+
+*"This game gave me the courage to eat a whole wedding cake."*
+
+The user can play TicTacToe by clicking the board.
+
+## Wireframe
+
+![Wireframe](TicTacToe-Wireframe-small.jpg)

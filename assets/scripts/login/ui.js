@@ -23,6 +23,8 @@ const fetchPlayerProfile = function () {
         HTMLstring = HTMLstring + '</dl>'
         $('#player-one-side').html(HTMLstring)
         $('#player-one-bottom').html(HTMLstring)
+        $('#player-two-side').html(`<p class="message-offline">Mystery Opponent</p>`)
+        $('#player-two-bottom').html(`<p class="message-offline">Mystery Opponent</p>`)
       })
   }
 }
