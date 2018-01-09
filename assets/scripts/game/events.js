@@ -250,8 +250,12 @@ const trollText = function (teamInSquare) {
   if (wrongClicks > 3) {
     $('#message-box').text(trollMessages[trollState++])
   }
-  if (trollState >= trollMessages.length) {
+  if (trollState === trollMessages.length) {
     document.getElementsByTagName('main')[0].style.display = `none`
+    setTimeout(() => {
+      document.getElementsByTagName('main')[0].style.display = `block`
+      $('#message-box').text(`Just Kidding!!`)
+    }, 5000)
   }
 }
 
