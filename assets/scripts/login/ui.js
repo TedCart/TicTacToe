@@ -90,6 +90,7 @@ const signOutSuccess = function (data) {
   $('#message-box').text(`You signed out!`)
   clearFields()
   toggleSignInButtons()
+  gameEvents.onNewGame()
 }
 
 const signOutFailure = function (error) {
