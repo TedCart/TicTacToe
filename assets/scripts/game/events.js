@@ -260,8 +260,11 @@ const trollText = function (teamInSquare) {
   if (trollState > (trollMessages.length + 5)) {
     $('#message-box').text(`Do you really want to do this again?`)
   }
-  if (trollState > (trollMessages.length + 10)) {
+  if (trollState > (trollMessages.length + 8)) {
     $('#message-box').text(`I mean, we can if you want to.`)
+  }
+  if (trollState > (trollMessages.length + 11)) {
+    $('#message-box').text(`It's gonna be exactly the same. :/`)
   }
   if (trollState > (trollMessages.length + 13)) {
     $('#message-box').text(`Ok, here we go!`)
