@@ -45,6 +45,9 @@ const onNewGame = function () {
       .then(ui.newGameSuccess)
       .catch(ui.newGameFailure)
     $('#offline-message-box').html('')
+  } else {
+    $('#player-one-side').html(`<p>Player 1</p>`)
+    $('#player-one-bottom').html(`<p>Player 1</p>`)
   }
   newTitle()
 }
@@ -94,6 +97,7 @@ Element.prototype.remove = function () {
 const gameOverMessageFunction = function (gameMessage) {
   const messageHTML = '<p>' + gameMessage + '</p><p>Click board to play again</p>'
   $('#message-box').html(messageHTML)
+  ui.fetchPlayerProfile()
 }
 
 const resetBoard = function () {
@@ -334,5 +338,6 @@ module.exports = {
   onGetGame,
   onGetAllGames,
   onGetAllCompletedGames,
-  newTitle
+  newTitle,
+  resetBoard
 }

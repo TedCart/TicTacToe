@@ -64,7 +64,7 @@ const signInSuccess = function (data) {
   clearFields()
   toggleSignInButtons()
   fetchPlayerProfile()
-  gameEvents.onNewGame()
+  gameEvents.resetBoard()
 }
 
 const signInFailure = function (error) {
@@ -90,7 +90,7 @@ const signOutSuccess = function (data) {
   $('#message-box').text(`You signed out!`)
   clearFields()
   toggleSignInButtons()
-  gameEvents.onNewGame()
+  gameEvents.resetBoard()
 }
 
 const signOutFailure = function (error) {
@@ -107,5 +107,6 @@ module.exports = {
   changePasswordFailure,
   signOutSuccess,
   signOutFailure,
-  toggleSignInButtons
+  toggleSignInButtons,
+  fetchPlayerProfile
 }

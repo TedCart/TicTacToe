@@ -23,4 +23,6 @@ $(() => {
   gameEvents.newTitle()
   // $('#sign-in-email').val('okherewego')
   // $('#sign-in-password').val('jack')
+  $('#player-one-side').html(`<p>Player 1</p>`)
+  $('#player-one-bottom').html(`<p>Player 1</p>`)
 })
