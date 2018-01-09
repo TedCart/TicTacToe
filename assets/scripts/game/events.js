@@ -131,17 +131,20 @@ const updateOffsite = function () {
         } else {
           newLetter = 'o'
         }
-        store.game.cells[i] = newLetter
-        const newBoardInfo = {
-          game: {
-            cell: {
-              index: i,
-              value: newLetter
-            },
-            over: over
+        // Only patches game if the array is different
+        if (store.game.cells[i] === newLetter) {
+          store.game.cells[i] = newLetter
+          const newBoardInfo = {
+            game: {
+              cell: {
+                index: i,
+                value: newLetter
+              },
+              over: over
+            }
           }
+          api.patchOffsite(newBoardInfo)
         }
-        api.patchOffsite(newBoardInfo)
       }
     }
   }
