@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>TicTacToe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <div class="container">
+        <header>
+          <h1>TicTacToe</h1>
+          <h2 id="game-subtitle"></h2>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#" title="Clicking here will make you happy. Happiness not guaranteed." id="special-button">Happy Button</a>
+          <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">toggle-icon</span>
+          </button> -->
+          <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> -->
+            <div class="navbar-nav" style="float:right;">
+              <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
+              <form id="sign-in-form">
+                <input name="credentials[email]" type="text" placeholder="Username" id="sign-in-email">
+                <input name="credentials[password]" type="password" placeholder="Password" id="sign-in-password">
+                <input type="submit" class="btn btn-primary" value="Sign In">
+              </form>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createAccount" id="createAccountButton">
+                Create New Account
+              </button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changePassword" id="changePasswordButton">
+                Change Password
+              </button>
+              <form id=sign-out>
+                <input type="text" name="fake[data]" value="spacetakerupper" style="display: none;">
+                <button type="submit" class="btn btn-primary">
+                  Sign Out
+                </button>
+              </form>
+            </div>
+          <!-- </div> -->
+        </nav>
+      </div>
+      <div class="container message-box" id="message-box">
+      </div>
+      <main>
+        <div class="container">
+          <div class="row">
+            <div class="medium-at-least col-md-3 col-sm-1 col-xs-1 player-sidebox">
+              <div class="medium-at-least player-container" id="player-one-side"></div>
+            </div>
+            <div class="col-md-6 col-sm-10 col-xs-10 center-me" id="game-board">
+              <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-4 blank-square">
+                  <div class="game-square y-top x-left" id=1></div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 blank-square">
+                  <div class="game-square y-top x-middle" id=2></div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 blank-square">
+                  <div class="game-square y-top x-right" id=3></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-4 blank-square">
+                  <div class="game-square y-middle x-left" id=4></div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 blank-square">
+                  <div class="game-square y-middle x-middle" id=5></div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 blank-square">
+                  <div class="game-square y-middle x-right" id=6></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-4 blank-square">
+                  <div class="game-square y-bottom x-left" id=7></div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 blank-square">
+                  <div class="game-square y-bottom x-middle" id=8></div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 blank-square">
+                  <div class="game-square y-bottom x-right" id=9></div>
+                </div>
+              </div>
+            </div>
+            <div class="medium-at-least col-md-3 col-sm-1 col-xs-1 player-sidebox">
+              <div class="medium-at-least player-container" id="player-two-side"></div>
+            </div>
+          </div>
+          <div class="row center-me">
+            <div class="col-sm-1 col-xs-1 emptiness medium-less-than"></div>
+            <div class="col-sm-5 col-xs-5 player-bottombox medium-less-than">
+              <div class="player-container medium-less-than" id="player-one-bottom"></div>
+            </div>
+            <div class="col-sm-5 col-xs-5 player-bottombox medium-less-than">
+              <div class="player-container medium-less-than" id="player-two-bottom"></div>
+            </div>
+            <div class="col-sm-1 col-xs-1 emptiness medium-less-than"></div>
+          </div>
+        </div>
+        <div class="container message-box" id="offline-message-box">
+        </div>
+      </main>
+      <div class="container">
+        <footer class="clearfix">
+        	<p class="copyright" style="float: left;">Copyright 2017</p>
+        	<p class="message" style="float: right;">A Ted Cart Project</p>
+        </footer>
+      </div>
+      <div class="modal fade" id="createAccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <form id="sign-up-form">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <fieldset>
+                  <legend>Create an Account</legend>
+                  <input name="credentials[email]" type="text" placeholder="New Username">
+                  <input name="credentials[password]" type="password" placeholder="Password">
+                  <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+                  <!-- <input type="submit" class="btn btn-primary" name="submit" value="Save Changes"> -->
+                </fieldset>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <form id="change-password">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <fieldset>
+                  <legend>Change Password</legend>
+                  <input name="passwords[old]" type="password" placeholder="Old Password">
+                  <input name="passwords[new]" type="password" placeholder="New Password">
+                  <!-- <input type="submit" class="btn btn-primary" name="submit" value="Save Changes"> -->
+                </fieldset>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>
