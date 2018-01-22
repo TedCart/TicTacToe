@@ -32,7 +32,9 @@ I had to refactor a number of things. I replaced javascript commands with jQuery
 
 ## Flavor Text
 
-TicTacToe is boring. That's why I added a bunch of snarky stuff that might or might not be funny - I don't know you. For example, if you click on the same square a bunch, the game will chastise you/plead with you not to do that. The victory/tie game messages are randomized (and sometimes nonsense). The subtitle of the header changes randomly too.
+TicTacToe is boring. That's why I added a bunch of snarky stuff that might or might not be funny - I don't know you. For example, if you click on the same square a bunch, the game will chastise you/plead with you not to do that. The victory/tie game messages are randomized (and sometimes nonsense). The subtitle of the header at the top of the page changes every game too.
+
+If you click an unavailable square too many times, the board will eventually disappear. The player receives ample warning messages before this point and is probably doing it on purpose, but even so the board only diappears temporarily (5 seconds) before coming back.
 
 ## Stretch Goals
 
